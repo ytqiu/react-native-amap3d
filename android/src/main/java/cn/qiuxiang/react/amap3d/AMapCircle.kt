@@ -48,8 +48,8 @@ class AMapCircle(context: ThemedReactContext) : ReactViewGroup(context) {
             circle?.zIndex = value
         }
 
-    fun addToMap(map: AMap) {
-        circle = map.addCircle(CircleOptions()
+    fun addToMap(mapView: AMapView) {
+        circle = mapView.map.addCircle(CircleOptions()
                 .center(center)
                 .radius(radius)
                 .strokeColor(strokeColor)

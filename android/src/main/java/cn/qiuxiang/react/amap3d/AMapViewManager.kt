@@ -2,6 +2,7 @@ package cn.qiuxiang.react.amap3d
 
 import android.view.View
 import com.amap.api.maps.AMap
+import com.amap.api.maps.CameraUpdate
 import com.amap.api.maps.CameraUpdateFactory
 import com.amap.api.maps.model.LatLng
 import com.amap.api.maps.model.LatLngBounds
@@ -167,6 +168,11 @@ internal class AMapViewManager : ViewGroupManager<AMapView>() {
         view.map.moveCamera(CameraUpdateFactory.changeLatLng(LatLng(
                 coordinate.getDouble("latitude"),
                 coordinate.getDouble("longitude"))))
+    }
+
+    @ReactProp(name = "region")
+    fun moveToRegion(view: AMapView, region: ReadableMap) {
+        view.map.moveCamera(CameraUpdateFactory.newLatLngBounds(AMapConverter.LatLngBounds(region), 50))
     }
 
     @ReactProp(name = "limitRegion")

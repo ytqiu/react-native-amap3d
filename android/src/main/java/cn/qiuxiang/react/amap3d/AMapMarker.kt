@@ -28,6 +28,8 @@ class AMapMarker(context: ThemedReactContext) : ReactViewGroup(context) {
 
     var marker: Marker? = null
         private set
+    var mapView: AMapView? = null
+        private set
 
     var position: LatLng? = null
         set(value) {
@@ -38,7 +40,9 @@ class AMapMarker(context: ThemedReactContext) : ReactViewGroup(context) {
     var zIndex: Float = 0.0f
         set(value) {
             field = value
-            marker?.zIndex = value
+
+            mapView?.remove(this)
+            mapView?.addMarker(this)
         }
 
     var title = ""
@@ -83,8 +87,9 @@ class AMapMarker(context: ThemedReactContext) : ReactViewGroup(context) {
 
     private var bitmapDescriptor: BitmapDescriptor? = null
 
-    fun addToMap(map: AMap) {
-        marker = map.addMarker(MarkerOptions()
+    fun addToMap(mapView: AMapView) {
+        this.mapView = mapView
+        marker = mapView.map.addMarker(MarkerOptions()
                 .setFlat(flat)
                 .icon(bitmapDescriptor)
                 .alpha(opacity)

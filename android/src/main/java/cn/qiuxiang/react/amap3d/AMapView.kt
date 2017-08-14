@@ -57,7 +57,7 @@ class AMapView(context: ThemedReactContext) : MapView(context) {
         }
 
         map.setOnMarkerClickListener { marker ->
-            emit(markers[marker.id]?.id, "onMarkerClick")
+            emit(markers[marker.id]?.id, "onMarkerClick", Arguments.createMap())
             false
         }
 
@@ -97,22 +97,22 @@ class AMapView(context: ThemedReactContext) : MapView(context) {
     }
 
     fun addMarker(marker: AMapMarker) {
-        marker.addToMap(map)
+        marker.addToMap(this)
         markers.put(marker.marker?.id!!, marker)
     }
 
     fun addPolyline(polyline: AMapPolyline) {
-        polyline.addToMap(map)
+        polyline.addToMap(this)
         polylines.put(polyline.polyline?.id!!, polyline)
     }
 
     fun  addPolygon(polygon: AMapPolygon) {
-        polygon.addToMap(map)
+        polygon.addToMap(this)
         polygons.put(polygon.polygon?.id!!, polygon)
     }
 
     fun addCircle(circle: AMapCircle) {
-        circle.addToMap(map)
+        circle.addToMap(this)
         circles.put(circle.circle?.id!!, circle)
     }
 

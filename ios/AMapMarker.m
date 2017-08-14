@@ -19,7 +19,7 @@
     _annotation = [MAPointAnnotation new];
     _annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:_annotation reuseIdentifier:nil];
     _annotationView.canShowCallout = YES;
-
+    
     return self;
 }
 
@@ -85,6 +85,11 @@
 
 - (void)setZIndex:(NSInteger)zIndex {
     _annotationView.zIndex = zIndex;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_mapView removeAnnotation:self];
+        [_mapView addAnnotation:self];
+    });
 }
 
 - (void)setMapView:(AMapView *)mapView {

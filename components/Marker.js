@@ -119,6 +119,10 @@ export default class Marker extends Component {
     }
   }
 
+  refreshIcon() {
+    this.refs.icon && this.refs.icon.update()
+  }
+
   render() {
     const props = {
       ...this.props,
@@ -137,7 +141,7 @@ export default class Marker extends Component {
     }
 
     if (typeof props.icon === 'function') {
-      customMarker = <Overlay style={styles.overlay}>{props.icon()}</Overlay>
+      customMarker = <Overlay ref={'icon'} style={styles.overlay}>{props.icon()}</Overlay>
       delete props.icon
     }
 

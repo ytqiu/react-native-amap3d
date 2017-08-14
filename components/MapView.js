@@ -98,6 +98,11 @@ class MapView extends Component {
     coordinate: LatLng,
 
     /**
+     * 设置可见区域
+     */
+    region: Region,
+
+    /**
      * 设置可见地图区域的矩形
      */
     limitRegion: Region,

@@ -14,7 +14,14 @@ class Overlay extends Component {
   }
   
   componentDidUpdate() {
+    this.update()
+  }
+
+  update() {
     setTimeout(() => {
+      if (this == null) {
+        return
+      }
       UIManager.dispatchViewManagerCommand(
             findNodeHandle(this),
             UIManager.AMapOverlay.Commands.update,

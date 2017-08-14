@@ -47,8 +47,8 @@ class AMapPolygon(context: ThemedReactContext) : ReactViewGroup(context) {
         polygon?.points = this.coordinates
     }
 
-    fun addToMap(map: AMap) {
-        polygon = map.addPolygon(PolygonOptions()
+    fun addToMap(mapView: AMapView) {
+        polygon = mapView.map.addPolygon(PolygonOptions()
                 .addAll(coordinates)
                 .strokeColor(strokeColor)
                 .strokeWidth(strokeWidth)

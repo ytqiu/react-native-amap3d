@@ -67,8 +67,8 @@ class AMapPolyline(context: ThemedReactContext) : ReactViewGroup(context) {
         this.colors = ArrayList((0..colors.size() - 1).map { colors.getInt(it) })
     }
 
-    fun addToMap(map: AMap) {
-        polyline = map.addPolyline(PolylineOptions()
+    fun addToMap(mapView: AMapView) {
+        polyline = mapView.map.addPolyline(PolylineOptions()
                 .addAll(coordinates)
                 .color(AMapConverter.color(color, opacity))
                 .colorValues(colorValues())
