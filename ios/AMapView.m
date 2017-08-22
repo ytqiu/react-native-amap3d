@@ -8,6 +8,14 @@
 @implementation AMapView {
 }
 
+- (void)setCustomMapStyleName:(NSString *)name {
+    NSURL *msu = [[NSBundle mainBundle] URLForResource:name withExtension:nil];
+    if (msu) {
+        [super setCustomMapStyleEnabled:YES];
+        [super setCustomMapStyleWithWebData:[NSData dataWithContentsOfURL:msu]];
+    }
+}
+
 - (void)setShowsTraffic:(BOOL)shows {
     super.showTraffic = shows;
 }

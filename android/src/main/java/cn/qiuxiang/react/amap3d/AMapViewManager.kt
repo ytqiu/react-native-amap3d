@@ -1,5 +1,6 @@
 package cn.qiuxiang.react.amap3d
 
+import android.util.Log
 import android.view.View
 import com.amap.api.maps.AMap
 import com.amap.api.maps.CameraUpdate
@@ -11,6 +12,9 @@ import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.ViewGroupManager
 import com.facebook.react.uimanager.annotations.ReactProp
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 
 @Suppress("unused")
 internal class AMapViewManager : ViewGroupManager<AMapView>() {
@@ -141,6 +145,25 @@ internal class AMapViewManager : ViewGroupManager<AMapView>() {
             "night" -> view.map.mapType = AMap.MAP_TYPE_NIGHT
             "bus" -> view.map.mapType = AMap.MAP_TYPE_BUS
         }
+    }
+
+    @ReactProp(name = "customMapStyleName")
+    fun setCustomMapStyleName(view: AMapView, name: String) {
+        view.map.setMapCustomEnable(true)
+        var file = File(view.context.cacheDir, name)
+        if (!file.exists()) {
+            try {
+                var fi = view.resources.assets.open(name)
+                var fo = FileOutputStream(file)
+                fi.copyTo(fo)
+
+                fi.close()
+                fo.close()
+            } catch (e: Exception) {
+            }
+        }
+
+        view.map.setCustomMapStylePath(file.absolutePath)
     }
 
     @ReactProp(name = "zoomEnabled")

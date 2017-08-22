@@ -28,6 +28,12 @@ class MapView extends Component {
     mapType: PropTypes.oneOf(['standard', 'satellite', 'navigation', 'night', 'bus']),
 
     /**
+     * 设置自定义地图样式
+     * 指定本地资源的名字
+     */
+    customMapStyleName: PropTypes.string,
+
+    /**
      * 是否启用定位
      */
     locationEnabled: PropTypes.bool,

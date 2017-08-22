@@ -46,6 +46,7 @@ RCT_EXPORT_VIEW_PROPERTY(limitRegion, MACoordinateRegion)
 RCT_EXPORT_VIEW_PROPERTY(tilt, CGFloat)
 RCT_EXPORT_VIEW_PROPERTY(rotate, CGFloat)
 RCT_EXPORT_VIEW_PROPERTY(region, MACoordinateRegion)
+RCT_EXPORT_VIEW_PROPERTY(customMapStyleName, NSString)
 
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onLongPress, RCTBubblingEventBlock)
