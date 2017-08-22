@@ -187,20 +187,26 @@ internal class AMapViewManager : ViewGroupManager<AMapView>() {
     }
 
     @ReactProp(name = "coordinate")
-    fun moveToCoordinate(view: AMapView, coordinate: ReadableMap) {
-        view.map.moveCamera(CameraUpdateFactory.changeLatLng(LatLng(
-                coordinate.getDouble("latitude"),
-                coordinate.getDouble("longitude"))))
+    fun moveToCoordinate(view: AMapView, coordinate: ReadableMap?) {
+        if (coordinate != null) {
+            view.map.moveCamera(CameraUpdateFactory.changeLatLng(LatLng(
+                    coordinate.getDouble("latitude"),
+                    coordinate.getDouble("longitude"))))
+        }
     }
 
     @ReactProp(name = "region")
-    fun moveToRegion(view: AMapView, region: ReadableMap) {
-        view.map.moveCamera(CameraUpdateFactory.newLatLngBounds(AMapConverter.LatLngBounds(region), 50))
+    fun moveToRegion(view: AMapView, region: ReadableMap?) {
+        if (region != null) {
+            view.map.moveCamera(CameraUpdateFactory.newLatLngBounds(AMapConverter.LatLngBounds(region), 50))
+        }
     }
 
     @ReactProp(name = "limitRegion")
-    fun setLimitRegion(view: AMapView, limitRegion: ReadableMap) {
-        view.map.setMapStatusLimits(AMapConverter.LatLngBounds(limitRegion))
+    fun setLimitRegion(view: AMapView, limitRegion: ReadableMap?) {
+        if (limitRegion != null) {
+            view.map.setMapStatusLimits(AMapConverter.LatLngBounds(limitRegion))
+        }
     }
 
     @ReactProp(name = "tilt")
