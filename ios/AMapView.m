@@ -33,7 +33,7 @@
 }
 
 - (void)setRegion:(MACoordinateRegion)region {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [super setRegion:MACoordinateRegionMake(region.center, MACoordinateSpanMake(region.span.latitudeDelta * 2, region.span.longitudeDelta * 2)) animated:NO];
     });
 }
