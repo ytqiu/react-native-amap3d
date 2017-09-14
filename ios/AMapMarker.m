@@ -2,12 +2,15 @@
 
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"
 
+@interface AMapMarker ()
+@property (nonatomic, weak) AMapView *mapView;
+@property (nonatomic, weak) AMapOverlay *overlay;
+@property (nonatomic, weak) AMapOverlay *callout;
+@end
+
 @implementation AMapMarker {
     MAPinAnnotationView *_annotationView;
     MAPointAnnotation *_annotation;
-    AMapOverlay *_overlay;
-    AMapOverlay *_callout;
-    AMapView *_mapView;
     BOOL _active;
     UIImage *_image;
     CGPoint _centerOffset;
@@ -151,6 +154,10 @@
         // change default callout offset
         _annotationView.customCalloutView.bounds = CGRectMake(0, 0, width, height);
     }
+}
+
+- (void)dealloc {
+    NSLog(@"amapmarker dealloc");
 }
 
 @end

@@ -70,4 +70,9 @@
 - (void)didUpdateReactSubviews {
 }
 
+- (void)dealloc {
+    NSLog(@"amap dealloc");
+    [self removeOverlays:[self overlays]];
+}
+
 @end
