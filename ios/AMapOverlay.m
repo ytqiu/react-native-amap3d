@@ -16,4 +16,8 @@
     [self update];
 }
 
+- (void)dealloc {
+    NSLog(@"amapoverlay dealloc");
+}
+
 @end

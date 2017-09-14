@@ -1,4 +1,5 @@
 #import "AMapMarker.h"
+#import "UIView+React.h"
 
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"
 
@@ -104,6 +105,8 @@
 }
 
 - (void)insertReactSubview:(id <RCTComponent>)subview atIndex:(NSInteger)atIndex {
+    [super insertReactSubview:(UIView *)subview atIndex:atIndex];
+    
     if ([subview isKindOfClass:[AMapOverlay class]]) {
         if (atIndex == 0) {
             _overlay = (AMapOverlay *) subview;
