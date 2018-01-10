@@ -85,27 +85,27 @@ export default class Marker extends Component {
         /**
          * 点击事件
          */
-        onPress: React.PropTypes.func,
+        onPress: PropTypes.func,
 
         /**
          * 拖放开始事件
          */
-        onDragStart: React.PropTypes.func,
+        onDragStart: PropTypes.func,
 
         /**
          * 拖放进行事件，类似于 mousemove，在结束之前会不断调用
          */
-        onDrag: React.PropTypes.func,
+        onDrag: PropTypes.func,
 
         /**
          * 拖放结束事件，最终坐标将传入参数
          */
-        onDragEnd: React.PropTypes.func,
+        onDragEnd: PropTypes.func,
 
         /**
          * 信息窗体点击事件
          */
-        onInfoWindowPress: React.PropTypes.func
+        onInfoWindowPress: PropTypes.func
     }
 
     _handle(name) {

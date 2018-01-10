@@ -142,27 +142,27 @@ class MapView extends Component {
         /**
          * 点击事件
          */
-        onPress: React.PropTypes.func,
+        onPress: PropTypes.func,
 
         /**
          * 长按事件
          */
-        onLongPress: React.PropTypes.func,
+        onLongPress: PropTypes.func,
 
         /**
          * 定位事件
          */
-        onLocation: React.PropTypes.func,
+        onLocation: PropTypes.func,
 
         /**
          * 动画完成事件
          */
-        onAnimateFinish: React.PropTypes.func,
+        onAnimateFinish: PropTypes.func,
 
         /**
          * 动画取消事件
          */
-        onAnimateCancel: React.PropTypes.func
+        onAnimateCancel: PropTypes.func
     }
 
     animateToCoordinate(coordinate, duration = 1000) {
