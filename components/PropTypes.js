@@ -1,23 +1,17 @@
-import {PropTypes} from 'react'
-
+import PropTypes from 'prop-types'
 const LatLng = PropTypes.shape({
-  latitude: PropTypes.number.isRequired,
-  longitude: PropTypes.number.isRequired,
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired
 })
 
 const Span = PropTypes.shape({
-  latitudeDelta: PropTypes.number.isRequired,
-  longitudeDelta: PropTypes.number.isRequired,
+    latitudeDelta: PropTypes.number.isRequired,
+    longitudeDelta: PropTypes.number.isRequired
 })
 
 const Region = PropTypes.shape({
-  center: LatLng,
-  span: Span,
+    center: LatLng,
+    span: Span
 })
 
-export {
-  LatLng,
-  Span,
-  Region,
-}
-
+export { LatLng, Span, Region }
